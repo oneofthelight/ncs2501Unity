@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using TMPro;
 
 public class KeyInput : MonoBehaviour
 {
@@ -9,9 +10,7 @@ public class KeyInput : MonoBehaviour
     public Sprite downgfx;
     public Sprite upgfx;
     public Sprite heldgfx;
-    public Text boolDisplay1;
-    public Text boolDisplay2;
-    public Text boolDisplay3;
+    public TextMeshProUGUI boolDisplay1, boolDisplay2, boolDisplay3;
     void Start()
     {
         graphic.sprite = standard;
@@ -20,9 +19,9 @@ public class KeyInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool down = Input.GetKeyDown(KeyCode.Space);
-        bool held = Input.GetKey(KeyCode.Space);
-        bool up = Input.GetKeyUp(KeyCode.Space);
+        bool down = Input.GetButtonDown("Fire1");
+        bool held = Input.GetButton("Fire1");
+        bool up = Input.GetButtonUp("Fire1");
 
         if(down)
         {
@@ -43,6 +42,6 @@ public class KeyInput : MonoBehaviour
 
         boolDisplay1.text = " " + down;
         boolDisplay2.text = " " + held;
-        boolDisplay3.text = " " + held;
+        boolDisplay3.text = " " + up;
     }
 }
